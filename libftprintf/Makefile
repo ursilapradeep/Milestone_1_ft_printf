@@ -1,8 +1,8 @@
 NAME = libftprintf.a
 
-SRC = ft_printf.c /ft_putchar.c ft_putstr.c ft_putnbr.c ft_putnbr_base.c \
-	  ft_putptr.c ft_putunsigned.c ft_strlen.c ft_strchr.c \
-	  ft_strlcpy.c ft_strjoin.c ft_strdup.c ft_itoa.c
+SRC = ft_printf.c \
+	ft_utils.c \
+	ft_hexadecimal.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -10,11 +10,10 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-all = $(NAME)
+all: $(NAME)
 
-$(NAME) = $(OBJ)
+$(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
-
 
 clean:
 	rm -f $(OBJ)
